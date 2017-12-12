@@ -93,7 +93,7 @@ var Quiet = (function() {
         if (!prefix.endsWith("/")) {
             prefix += "/";
         }
-        var profilesPath = prefix + "quiet-profiles.json";
+        var profilesPath = "http://localhost:8888/quiet-profiles.json";
 
         var fetch = new Promise(function(resolve, reject) {
             var xhr = new XMLHttpRequest();
