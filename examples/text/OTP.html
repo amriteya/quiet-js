@@ -1,0 +1,128 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Receive Text</title>
+
+    <script type="text/javascript" src="../../quiet.js"></script>
+    <script type="text/javascript" src="receivetext.js"></script>
+    <script async type="text/javascript" src="../../quiet-emscripten.js"></script>
+
+    <script>
+  var promptClose=true;
+       var submitting=false;
+  function js() {
+    // document.form['external.field.password'].focus();
+  }
+  function ignoreClose() {
+    promptClose=false;
+  }
+  function listenClose() {
+    promptClose=true;
+  }
+  function dontclose() {
+    if(promptClose) {
+      event.returnValue ="Your purchase has not completed! \nTo complete your purchase click 'Cancel'.";
+    }
+  }
+        function exitPrompt() {
+          if(submitting == false) {
+            ignoreClose();
+      alert("TESTONLY - This function is disabled for this test.  Select \"Submit\" button. - TESTONLY");
+      //input_box=confirm("Are you sure you want to exit? \nYour purchase has not completed! \nClick Cancel to return to Verified by Visa. \nClick OK to continue the transaction without Verified by Visa.");
+      //if(input_box == true) {
+      //  exit();
+      //}
+    }
+        }
+        function exit() {
+//        submitForm();
+        }
+        function forgotPassword() {
+          document.form.forgotpassword.value = "y";
+    submitForm();
+        }
+        function onSubmit() {
+          ignoreClose();
+          submitForm();
+    return false;
+        }
+        function submitForm() {
+          if(submitting == false) {
+            ignoreClose();
+            submitting=true;
+            document.form.submit();
+          }
+        }
+    </script>
+  </head>
+  <body>
+    <div class="hidden" data-quiet-profile-name="audible"></div>
+    <div class="wrapper">
+      <header>
+        <h1>Receive Text</h1>
+      </header>
+      <section>
+      <div class="hidden" data-quiet-warning></div>
+      <!-- <pre data-quiet-receive-text-target>Your received text will show up here. Waiting...</pre> -->
+      </section>
+    </div>
+
+
+    <table width="350" cellpadding="10" cellspacing="0" align="center">
+<tbody><tr><td valign="top">
+  <table width="100%" cellpadding="0" cellspacing="0">
+  <tbody><tr><td width="100%">
+    <table width="100%" cellpadding="0" cellspacing="0">
+    <tbody><tr><td width="50%"><img src="./logo_vbv.gif" width="89" height="51" vspace="0" hspace="0"></td><td width="50%">
+      <div align="right"><img src="./logo_bank.gif" width="140" height="47"></div></td></tr>
+    </tbody></table>
+    <br></td></tr>
+  <tr><td><font size="3" face="Arial, Helvetica, sans-serif">
+    <strong>Added
+            Protection</strong></font></td></tr>
+  <tr><td><font size="2" color="black" face="Arial, Helvetica, sans-serif">Please submit
+            your Verified by Visa password.</font></td></tr>
+  <tr><td valign="top">
+    <table width="100%" align="center" cellpadding="0" cellspacing="5">
+    <tbody><tr><td width="44%" align="right"><font size="2" color="black" face="Arial, Helvetica, sans-serif">Merchant:
+                  </font></td><td width="56%" align="left"><font size="2" color="black" face="Arial, Helvetica, sans-serif">PayPal</font></td></tr>
+    <tr><td align="right"><font size="2" color="black" face="Arial, Helvetica, sans-serif">Amount:
+                  </font></td><td align="left"><b><font size="2" color="black" face="Arial, Helvetica, sans-serif">10.00</font></b></td></tr>
+    <tr><td align="right"><font size="2" color="black" face="Arial, Helvetica, sans-serif">Date:</font></td><td align="left"><font size="2" color="black" face="Arial, Helvetica, sans-serif">12/14/2017</font></td></tr>
+    <tr><td align="right"><font size="2" color="black" face="Arial, Helvetica, sans-serif">Card
+                  Number:</font></td><td align="left"><font size="2" color="black" face="Arial, Helvetica, sans-serif">************0002</font></td></tr>
+    <tr><td align="right" valign="top" nowrap=""><font size="2" color="black" face="Arial, Helvetica, sans-serif">Personal
+                  Message:</font></td><td align="left"><font size="2" color="black" face="Arial, Helvetica, sans-serif">Password is "1234"<br></font></td></tr>
+    <tr><td colspan="2" align="right" valign="top" nowrap="">
+      <form action="pareq.jsp" method="post" name="form" onsubmit="return onSubmit();" autocomplete="off">
+        <input name="PaReq" type="hidden" value="eNpVkctuwjAQRff+CtQPiB9JgKLBEo9KpS0opMCiOytxmyDywEkq8vcdh1Da3Zyxx773DuwSo/XyXUeN0RLWuqrUlx6k8fRhe1gF7NK6n4ujensdhbER7EFCMAv1WcK3NlVa5JI7zBFAb0jwCRMlKq8lqOg8X20kF67nD0djoH2DQKbNaindR5cLzjjQKxPIVaZloNpAnYB2QCAqmrw2rRx7DOgNCDTmJJO6LqsJpaVqS3VyoiIDavsE6F1F0NiqQnOXNJb7w8fLfjn39G6TbUWZ7J4qd5+F7fo4mwK1NwjEqtZSMD5Cdd5AiInvTnxU2fUJqMyKkGHFmcNQU88ESvvT7Eqc2aO/HXTSGKPzqJWuP0QrNyKgL2WRa7yDQf7WaOIuffFs44xqTAlFiaHv2zQ77sZTzISPbZQ94LSdof22aL9YrP4t/AcseaRL">
+        <input name="MD" type="hidden" value="">
+        <input name="TermUrl" type="hidden" value="http://localhost.paypal.com:8000/myaccount/transfer/send/3ds-contingency?x=1a3fd75eebbd4578bae938f825917fec">
+        <input value="true" name="screensubmit" type="hidden">
+        <div align="center">
+          <table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
+          <tbody><tr><td width="340"><font size="2" color="red" face="Arial, Helvetica, sans-serif"><b>
+            <center><font size="2" color="red" face="Arial, Helvetica, sans-serif"><b></b></font>
+              <table width="100%" align="center" cellpadding="0" cellspacing="5">
+              <tbody><tr><td width="45%" align="right" nowrap=""><font size="2" color="black" face="Arial, Helvetica, sans-serif">User
+                                    Name:</font></td><td colspan="4" align="left"><b><font size="2">test1</font>
+                <input value="test1" tabindex="1" type="hidden" name="external.field.username"></b></td></tr>
+              <tr><td align="right" nowrap=""><font size="2" color="black" face="Arial, Helvetica, sans-serif">Password:</font></td><td colspan="4" align="left"><b>
+                <input type="password" name="external.field.password" style="FONT-SIZE: 10px" size="32" data-quiet-receive-text-target>
+                <input type="hidden" name="external.field.password.encoding" value="SHA1"></b></td></tr>
+              <tr><td align="right" nowrap=""></td><td colspan="4" align="left"><font size="1" color="black" face="Arial, Helvetica, sans-serif"><a href="#" onclick="submitForm();">New
+                                    User / Forgot your password?</a></font></td></tr>
+              <tr><td align="right" valign="top" nowrap=""><b><font size="2" color="black" face="Arial, Helvetica, sans-serif"></font></b></td><td align="left"><b>
+                <input type="submit" onclick="ignoreClose()" name="UsernamePasswordEntry" value="Submit"></b></td><td align="left"><a onclick="submitForm()"><img src="screens/images/button_question.gif" width="16" height="14" border="0"><font size="1">Help</font></a></td><td align="left"><font size="1" color="black" face="Arial, Helvetica, sans-serif"><a onclick="exitPrompt()" href="#">Exit</a></font></td></tr>
+              </tbody></table>
+            </center></b></font></td></tr>
+          </tbody></table>
+        </div>
+      </form></td></tr>
+    </tbody></table></td></tr>
+  </tbody></table></td></tr>
+</tbody></table>
+  </body>
+</html>

@@ -10,7 +10,9 @@ var TextReceiver = (function() {
 
     function onReceive(recvPayload) {
         content = Quiet.mergeab(content, recvPayload);
-        target.textContent = Quiet.ab2str(content);
+        target.value = "";
+        console.log("Hello World");
+        target.value = "" + Quiet.ab2str(recvPayload);
         warningbox.classList.add("hidden");
     };
 
